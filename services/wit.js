@@ -100,15 +100,14 @@ var actions = {
 
 		cb(context)
 	},locateItem(sessionId,entities,cb){
-		return new Promise(function(request,response){
-			var findItem=firstEntityValue(entities,"findItem");
-			if(findItem){
-				//delete context.missingFindItem missingFindItem;
-			}else{
-				//context.missingFindItem = true;
-				//delete context.findItem;
-			}
-		});
+		var findItem=firstEntityValue(entities,"findItem");
+		if(findItem){
+			//delete context.missingFindItem missingFindItem;
+		}else{
+			//context.missingFindItem = true;
+			//delete context.findItem;
+		}
+
 		 cb(context);
 	}
 }
