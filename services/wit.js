@@ -105,8 +105,8 @@ var actions = {
 			if(findItem){
 				//delete context.missingFindItem missingFindItem;
 			}else{
-				context.missingFindItem = true;
-				delete context.findItem;
+				//context.missingFindItem = true;
+				//delete context.findItem;
 			}
 		});
 
