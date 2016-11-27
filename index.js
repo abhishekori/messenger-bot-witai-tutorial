@@ -14,7 +14,7 @@ var app = express()
 app.set('port', (process.env.PORT) || 5000)
 // SPIN UP SERVER
 app.listen(app.get('port'), function () {
-  FB.newMessage(1090235287714718, "Hello user 1090235287714718")
+
   console.log('Running on port', app.get('port'))
 })
 // PARSE THE BODY
