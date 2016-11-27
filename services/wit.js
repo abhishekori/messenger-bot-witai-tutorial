@@ -30,6 +30,7 @@ var actions = {
 		console.log('WIT WANTS TO TALK TO:', context._fbid_)
 		console.log('WIT HAS SOMETHING TO SAY:', message)
 		console.log('WIT HAS A CONTEXT:', context)
+		console.log("your fb id is "+context._fbid_);
 		FB.newMessage(context._fbid_, message)
 		//if (checkURL(message)) {
 		//	FB.newMessage(context._fbid_, message, true)
