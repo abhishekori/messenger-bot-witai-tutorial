@@ -42,19 +42,32 @@ var actions = {
 		
 	},
 
-	locateItem(sessionId, context, entities, message, cb) {
+	merge(sessionId, context, entities, message, cb) {
 		// Reset the weather story
-
+		delete context.forecast
 
 		// Retrive the location entity and store it in the context field
-		var findItem = firstEntityValue(entities, 'findItem')
-		if (findItem) {
-			context.findItem = findItem
-		}else{
-			delete context.missingFindItem
+		var loc = firstEntityValue(entities, 'location')
+		if (loc) {
+			context.loc = loc
 		}
 
+		// Reset the cutepics story
+		delete context.pics
 
+		// Retrieve the category
+		var category = firstEntityValue(entities, 'category')
+		if (category) {
+			context.cat = category
+		}
+
+		// Retrieve the sentiment
+		var sentiment = firstEntityValue(entities, 'sentiment')
+		if (sentiment) {
+			context.ack = sentiment === 'positive' ? 'Glad your liked it!' : 'Aww, that sucks.'
+		} else {
+			delete context.ack
+		}
 
 		cb(context)
 	},
@@ -86,7 +99,18 @@ var actions = {
 		context.pics = wantedPics[Math.floor(Math.random() * wantedPics.length)]
 
 		cb(context)
-	},
+	},locateItem({context,entities}){
+		return new Promise(function(request,response){
+			var findItem=firstEntityValue(entities,"findItem");
+			if(findItem){
+				delete context.missingFindItem;
+			}else{
+				context.missingFindItem = true;
+				delete context.findItem;
+			}
+		});
+
+	}
 }
 
 // SETUP THE WIT.AI SERVICE
