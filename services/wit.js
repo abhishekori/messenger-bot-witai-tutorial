@@ -109,7 +109,7 @@ var actions = {
 				//delete context.findItem;
 			}
 		});
-
+		return resolve(context);
 	}
 }
 
