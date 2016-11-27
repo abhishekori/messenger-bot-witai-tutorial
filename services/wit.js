@@ -103,7 +103,7 @@ var actions = {
 		return new Promise(function(request,response){
 			var findItem=firstEntityValue(entities,"findItem");
 			if(findItem){
-				delete context.missingFindItem;
+				//delete context.missingFindItem missingFindItem;
 			}else{
 				context.missingFindItem = true;
 				delete context.findItem;
