@@ -42,7 +42,7 @@ var actions = {
 
 	},
 
-	merge(sessionId, context, entities, message, cb) {
+	mergee(sessionId, context, entities, message, cb) {
 		// Reset the weather story
 		//delete context.forecast
         //
