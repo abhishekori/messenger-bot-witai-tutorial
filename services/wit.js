@@ -99,7 +99,7 @@ var actions = {
 		context.pics = wantedPics[Math.floor(Math.random() * wantedPics.length)]
 
 		cb(context)
-	},locateItem(sessionId,entities,cb){
+	},locateItem(sessionId,context,entities,cb){
 		var findItem=firstEntityValue(entities,"findItem");
 		if(findItem){
 			//delete context.missingFindItem missingFindItem;
