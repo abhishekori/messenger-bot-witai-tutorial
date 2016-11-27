@@ -31,8 +31,14 @@ var actions = {
 		console.log('WIT HAS SOMETHING TO SAY:', message)
 		console.log('WIT HAS A CONTEXT:', context)
 
+		if (checkURL(message)) {
+			FB.newMessage(context._fbid_, message, true)
+		} else {
+			FB.newMessage(context._fbid_, message)
+		}
 
-								cb()
+
+		cb()
 
 	},
 
